@@ -1,9 +1,10 @@
+
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProducts } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import '../../styles/CategoryComponent.css';
 
-export default function CategoryComponent() {
+export default function CategoryComponent({ agregarAlCarrito }) {
   const { catID } = useParams();
   const navigate = useNavigate();
 
@@ -31,6 +32,7 @@ export default function CategoryComponent() {
             <br />
             <button onClick={() => handleClick(product.id)}>Ver detalle</button>
             <p>Price: ${product.price}</p>
+            <button onClick={() => agregarAlCarrito(product)}>Agregar al carrito</button>
           </div>
         ))}
       </div>
